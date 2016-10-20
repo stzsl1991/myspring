@@ -1,5 +1,5 @@
-import com.myspring.ioc.BeanDefinition;
-import com.myspring.ioc.BeanFactory;
+package com.myspring.ioc;
+
 import org.junit.Test;
 
 /**
@@ -12,7 +12,7 @@ public class BeanFactoryTest {
         BeanFactory beanFactory = new BeanFactory();
         BeanDefinition beanDefinition = new BeanDefinition(new HelloWorldService());
         beanFactory.registerBeanDefinition("helloWorldService", beanDefinition);
-        HelloWorldService helloWorldService = (HelloWorldService) beanFactory.getBeanDefinition("helloWorldService");
+        HelloWorldService helloWorldService = (HelloWorldService) beanFactory.getBean("helloWorldService");
         helloWorldService.sayHello();
     }
 }

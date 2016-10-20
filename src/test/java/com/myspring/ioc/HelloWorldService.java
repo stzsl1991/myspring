@@ -1,3 +1,5 @@
+package com.myspring.ioc;
+
 /**
  * Created by shulin on 16/10/20.
  */

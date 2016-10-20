@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class BeanFactory {
     Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
 
-    public Object getBeanDefinition(String name) {
+    public Object getBean(String name) {
         if (beanDefinitionMap.containsKey(name)) {
             return beanDefinitionMap.get(name).getBean();
         }
