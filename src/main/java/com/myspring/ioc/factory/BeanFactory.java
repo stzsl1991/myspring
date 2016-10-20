@@ -9,5 +9,5 @@ import com.myspring.ioc.BeanDefinition;
 public interface BeanFactory {
     public Object getBean(String name);
 
-    public void registerBeanDefinition(String name, BeanDefinition beanDefinition);
+    public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception;
 }

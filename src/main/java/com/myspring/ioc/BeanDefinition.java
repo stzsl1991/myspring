@@ -11,6 +11,8 @@ public class BeanDefinition {
     private Class beanClass;
     //这里的类名必须是“包名.类名”
     private String beanClassName;
+    //对象的属性信息
+    private PropertyValues propertyValues;
 
     public BeanDefinition() {
     }
@@ -43,4 +45,11 @@ public class BeanDefinition {
         this.beanClass = beanClass;
     }
 
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
+    }
 }

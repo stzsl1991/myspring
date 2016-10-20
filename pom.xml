@@ -18,8 +18,9 @@
     <description>
         自己根据spring-tiny学习spring的例子，spring-tiny的github地址：https://github.com/code4craft/tiny-spring
     </description>
+
     <!--本项目的github地址-->
-    <url></url>
+    <url>https://github.com/stzsl1991/myspring</url>
 
     <developers>
         <developer>
