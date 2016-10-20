@@ -1,6 +1,6 @@
 package com.myspring.ioc.factory;
 
-import com.myspring.ioc.BeanDefinition;
+import com.myspring.ioc.bean.BeanDefinition;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

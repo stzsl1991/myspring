@@ -1,4 +1,4 @@
-package com.myspring.ioc;
+package com.myspring.ioc.bean;
 
 /**
  * 用来封装Bean对象，除此之外可以封装一些额外的元数据
@@ -11,8 +11,8 @@ public class BeanDefinition {
     private Class beanClass;
     //这里的类名必须是“包名.类名”
     private String beanClassName;
-    //对象的属性信息
-    private PropertyValues propertyValues;
+    //对象的属性信息存放容器，需要实例化
+    private PropertyValues propertyValues = new PropertyValues();
 
     public BeanDefinition() {
     }

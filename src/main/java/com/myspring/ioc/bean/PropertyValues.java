@@ -1,4 +1,4 @@
-package com.myspring.ioc;
+package com.myspring.ioc.bean;
 
 import java.util.ArrayList;
 import java.util.List;

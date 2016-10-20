@@ -10,4 +10,20 @@ public class HelloWorldService {
     public void sayHello() {
         System.out.println(name + "对着大伙说：" + word);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
 }

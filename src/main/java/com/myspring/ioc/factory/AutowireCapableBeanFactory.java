@@ -1,11 +1,10 @@
 package com.myspring.ioc.factory;
 
-import com.myspring.ioc.BeanDefinition;
-import com.myspring.ioc.PropertyValue;
-import com.myspring.ioc.PropertyValues;
+import com.myspring.ioc.bean.BeanDefinition;
+import com.myspring.ioc.bean.PropertyValue;
+import com.myspring.ioc.bean.PropertyValues;
 
 import java.lang.reflect.Field;
-import java.util.List;
 
 /**
  * 具体工厂类，相比较1.2版本，此时在创建对象的时候需要为对象注入属性
