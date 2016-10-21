@@ -1,4 +1,4 @@
-package com.myspring.ioc.bean;
+package com.myspring.ioc.beans;
 
 /**
  * 用来封装Bean对象，除此之外可以封装一些额外的元数据

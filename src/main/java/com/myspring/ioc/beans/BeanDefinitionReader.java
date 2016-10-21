@@ -1,4 +1,4 @@
-package com.myspring.ioc.bean;
+package com.myspring.ioc.beans;
 
 /**
  * 从配置中读取BeanDefinition

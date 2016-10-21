@@ -1,9 +1,9 @@
-package com.myspring.ioc.factory;
+package com.myspring.ioc.beans.factory;
 
-import com.myspring.ioc.bean.BeanDefinition;
-import com.myspring.ioc.bean.BeanReference;
-import com.myspring.ioc.bean.PropertyValue;
-import com.myspring.ioc.bean.PropertyValues;
+import com.myspring.ioc.beans.BeanDefinition;
+import com.myspring.ioc.beans.BeanReference;
+import com.myspring.ioc.beans.PropertyValue;
+import com.myspring.ioc.beans.PropertyValues;
 
 import java.lang.reflect.Field;
 
@@ -16,7 +16,7 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
     protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception{
         Object bean = this.createBeanInstance(beanDefinition);
         beanDefinition.setBean(bean);
-        applyPropertyValues(bean,beanDefinition);
+        applyPropertyValues(bean, beanDefinition);
         return bean;
     }
 

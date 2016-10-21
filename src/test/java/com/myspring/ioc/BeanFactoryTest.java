@@ -1,11 +1,12 @@
 package com.myspring.ioc;
 
-import com.myspring.ioc.bean.BeanDefinition;
-import com.myspring.ioc.bean.xml.XmlBeanDefinitionReader;
-import com.myspring.ioc.factory.AbstractBeanFactory;
-import com.myspring.ioc.factory.AutowireCapableBeanFactory;
-import com.myspring.ioc.factory.BeanFactory;
-import com.myspring.ioc.io.ResourceLoader;
+import com.myspring.ioc.beans.BeanDefinition;
+import com.myspring.ioc.beans.xml.XmlBeanDefinitionReader;
+import com.myspring.ioc.beans.factory.AbstractBeanFactory;
+import com.myspring.ioc.beans.factory.AutowireCapableBeanFactory;
+import com.myspring.ioc.beans.io.ResourceLoader;
+import com.myspring.ioc.context.AbstractApplicationContext;
+import com.myspring.ioc.context.ClassPathXmlApplicationContext;
 import org.junit.Test;
 
 import java.util.Map;
@@ -28,8 +29,8 @@ public class BeanFactoryTest {
         for (Map.Entry<String,BeanDefinition> entry : xmlBeanDefinitionReader.getRegistry().entrySet()){
             beanFactory.registerBeanDefinition(entry.getKey(),entry.getValue());
         }
-        //4.初始化Bean
-        beanFactory.preInstantiateSingletons();
+        //4.提前实例化Bean。如果调用，那么就是延迟加载
+//        beanFactory.preInstantiateSingletons();
 
         HelloWorldService helloWorldService = (HelloWorldService) beanFactory.getBean(helloBeanName);
         helloWorldService.sayHello();
@@ -37,7 +38,5 @@ public class BeanFactoryTest {
         OutputService outputService = (OutputService) beanFactory.getBean(outputBeanName);
         outputService.modifyName();
         outputService.say();
-
-
     }
 }

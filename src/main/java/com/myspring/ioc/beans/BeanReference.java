@@ -1,4 +1,4 @@
-package com.myspring.ioc.bean;
+package com.myspring.ioc.beans;
 
 /**
  * 处理Bean之间的依赖，表示这个属性是对另一个Bean的引用

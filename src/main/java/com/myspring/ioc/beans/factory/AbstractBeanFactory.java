@@ -1,6 +1,6 @@
-package com.myspring.ioc.factory;
+package com.myspring.ioc.beans.factory;
 
-import com.myspring.ioc.bean.BeanDefinition;
+import com.myspring.ioc.beans.BeanDefinition;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -37,7 +37,6 @@ public abstract class AbstractBeanFactory implements BeanFactory {
      * @param beanDefinition
      * @throws Exception
      */
-    @Override
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
         if (!beanDefinitionMap.containsKey(name)) {
             beanDefinitionMap.put(name, beanDefinition);
@@ -47,12 +46,12 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 
     /**
-     * 采用懒人的单例模式，延迟加载
+     * 采用饿汉的单例模式，先实例化
      *
      * @throws Exception
      */
     public void preInstantiateSingletons() throws Exception {
-        for (Iterator it = this.beanDefinitionNames.iterator();it.hasNext();){
+        for (Iterator it = beanDefinitionNames.iterator();it.hasNext();){
             String beanName = (String)it.next();
             getBean(beanName);
         }

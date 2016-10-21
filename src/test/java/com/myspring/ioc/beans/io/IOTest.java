@@ -1,4 +1,4 @@
-package com.myspring.ioc.io;
+package com.myspring.ioc.beans.io;
 
 import org.junit.Assert;
 import org.junit.Test;
