@@ -1,6 +1,7 @@
 package com.myspring.ioc.factory;
 
 import com.myspring.ioc.bean.BeanDefinition;
+import com.myspring.ioc.bean.BeanReference;
 import com.myspring.ioc.bean.PropertyValue;
 import com.myspring.ioc.bean.PropertyValues;
 
@@ -14,6 +15,7 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
     @Override
     protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception{
         Object bean = this.createBeanInstance(beanDefinition);
+        beanDefinition.setBean(bean);
         applyPropertyValues(bean,beanDefinition);
         return bean;
     }
@@ -40,7 +42,13 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
             //可以获取到私有的属性
             Field declaredField = bean.getClass().getDeclaredField(propertyValue.getName());
             declaredField.setAccessible(true);
-            declaredField.set(bean,propertyValue.getValue());
+            Object value = propertyValue.getValue();
+            if (value instanceof BeanReference){
+                BeanReference ref = (BeanReference) value;
+                //从容器中取
+                value = getBean(ref.getName());
+            }
+            declaredField.set(bean,value);
         }
     }
 

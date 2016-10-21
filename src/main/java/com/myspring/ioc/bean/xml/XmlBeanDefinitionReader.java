@@ -2,6 +2,7 @@ package com.myspring.ioc.bean.xml;
 
 import com.myspring.ioc.bean.AbstractBeanDefinitionReader;
 import com.myspring.ioc.bean.BeanDefinition;
+import com.myspring.ioc.bean.BeanReference;
 import com.myspring.ioc.bean.PropertyValue;
 import com.myspring.ioc.io.ResourceLoader;
 import org.w3c.dom.Document;
@@ -75,7 +76,17 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
                 Element el = (Element) node;
                 String name = el.getAttribute("name");
                 String value = el.getAttribute("value");
-                beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name,value));
+                if(value!=null && value.length()>0){
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name,value));
+                }else{
+                    String rel = el.getAttribute("rel");
+                    if (rel==null || rel.length()==0){
+                        throw new IllegalArgumentException("Configuration problem: <property> element for property '"
+                                + name + "' must specify a ref or value");
+                    }
+                    BeanReference beanReference = new BeanReference(rel);
+                    beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name,beanReference));
+                }
             }
         }
     }

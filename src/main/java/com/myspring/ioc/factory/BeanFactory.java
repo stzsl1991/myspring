@@ -7,7 +7,7 @@ import com.myspring.ioc.bean.BeanDefinition;
  * Created by shulin on 16/10/20.
  */
 public interface BeanFactory {
-    public Object getBean(String name);
+    public Object getBean(String name) throws Exception;
 
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception;
 }

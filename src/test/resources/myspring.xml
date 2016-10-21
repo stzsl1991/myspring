@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
     <bean name="helloWorldService" class="com.myspring.ioc.HelloWorldService">
-        <property name="name" value="张三"></property>
+        <property name="name" value="helloWorld"></property>
         <property name="word" value="你们好！"></property>
+    </bean>
+
+    <bean name="outputService" class="com.myspring.ioc.OutputService">
+        <property name="name" value="Output"></property>
+        <property name="helloWorldService" rel="helloWorldService"></property>
     </bean>
 </beans>
