@@ -5,8 +5,6 @@ import com.myspring.ioc.beans.xml.XmlBeanDefinitionReader;
 import com.myspring.ioc.beans.factory.AbstractBeanFactory;
 import com.myspring.ioc.beans.factory.AutowireCapableBeanFactory;
 import com.myspring.ioc.beans.io.ResourceLoader;
-import com.myspring.ioc.context.AbstractApplicationContext;
-import com.myspring.ioc.context.ClassPathXmlApplicationContext;
 import org.junit.Test;
 
 import java.util.Map;
@@ -32,7 +30,7 @@ public class BeanFactoryTest {
         //4.提前实例化Bean。如果调用，那么就是延迟加载
 //        beanFactory.preInstantiateSingletons();
 
-        HelloWorldService helloWorldService = (HelloWorldService) beanFactory.getBean(helloBeanName);
+        HelloWorldServiceImpl helloWorldService = (HelloWorldServiceImpl) beanFactory.getBean(helloBeanName);
         helloWorldService.sayHello();
 
         OutputService outputService = (OutputService) beanFactory.getBean(outputBeanName);

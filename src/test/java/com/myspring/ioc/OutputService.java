@@ -6,7 +6,7 @@ package com.myspring.ioc;
 public class OutputService {
     private String name;
 
-    private HelloWorldService helloWorldService;
+    private HelloWorldServiceImpl helloWorldService;
 
     public void modifyName(){
         helloWorldService.setName(name);
@@ -24,11 +24,11 @@ public class OutputService {
         this.name = name;
     }
 
-    public HelloWorldService getHelloWorldService() {
+    public HelloWorldServiceImpl getHelloWorldService() {
         return helloWorldService;
     }
 
-    public void setHelloWorldService(HelloWorldService helloWorldService) {
+    public void setHelloWorldService(HelloWorldServiceImpl helloWorldService) {
         this.helloWorldService = helloWorldService;
     }
 }

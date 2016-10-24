@@ -1,6 +1,6 @@
 package com.myspring.ioc.context;
 
-import com.myspring.ioc.HelloWorldService;
+import com.myspring.ioc.HelloWorldServiceImpl;
 import com.myspring.ioc.OutputService;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ public class ApplicationContextTest {
     @Test
     public void test() throws Exception{
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("myspring.xml");
-        HelloWorldService helloWorldService = (HelloWorldService) applicationContext.getBean(helloBeanName);
+        HelloWorldServiceImpl helloWorldService = (HelloWorldServiceImpl) applicationContext.getBean(helloBeanName);
         helloWorldService.sayHello();
 
         OutputService outputService = (OutputService) applicationContext.getBean(outputBeanName);

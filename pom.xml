@@ -38,6 +38,15 @@
             <version>4.7</version>
             <scope>test</scope>
         </dependency>
+        <!--
+            AOP联盟的API包,里面包含了针对面向切面的接口。
+            通常Spring等其它具备动态织入功能的框架依赖此包。
+        -->
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 
