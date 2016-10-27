@@ -10,7 +10,6 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 
     public void sayHello() {
 //        System.out.println(name + "对着大伙说：" + word);
-
         //必须用注入的对象调用方法的时候，AOP才会发生。如果这里的只是输出sysout，那么AOP不会切入
         outputService.say();
     }
