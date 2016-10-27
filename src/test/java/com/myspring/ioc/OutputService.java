@@ -1,34 +1,10 @@
 package com.myspring.ioc;
 
 /**
- * Created by shulin on 16/10/21.
+ * Created by shulin on 16/10/26.
  */
-public class OutputService {
-    private String name;
+public interface OutputService {
+    public void modifyName();
 
-    private HelloWorldServiceImpl helloWorldService;
-
-    public void modifyName(){
-        helloWorldService.setName(name);
-    }
-
-    public void say(){
-        helloWorldService.sayHello();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public HelloWorldServiceImpl getHelloWorldService() {
-        return helloWorldService;
-    }
-
-    public void setHelloWorldService(HelloWorldServiceImpl helloWorldService) {
-        this.helloWorldService = helloWorldService;
-    }
+    public void say();
 }

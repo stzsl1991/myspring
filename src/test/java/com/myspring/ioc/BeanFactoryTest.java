@@ -33,7 +33,7 @@ public class BeanFactoryTest {
         HelloWorldServiceImpl helloWorldService = (HelloWorldServiceImpl) beanFactory.getBean(helloBeanName);
         helloWorldService.sayHello();
 
-        OutputService outputService = (OutputService) beanFactory.getBean(outputBeanName);
+        OutputServiceImpl outputService = (OutputServiceImpl) beanFactory.getBean(outputBeanName);
         outputService.modifyName();
         outputService.say();
     }

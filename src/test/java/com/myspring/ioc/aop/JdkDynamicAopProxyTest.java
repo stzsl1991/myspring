@@ -22,7 +22,7 @@ public class JdkDynamicAopProxyTest {
         //with aop
         //设置被代理对象
         AdvisedSupport advised = new AdvisedSupport();
-        TargetSource targetSource = new TargetSource(HelloWorldService.class,helloWorldService);
+        TargetSource targetSource = new TargetSource(helloWorldService,HelloWorldService.class);
         advised.setTargetSource(targetSource);
         //设置拦截器
         TimeInterceptor timeInterceptor = new TimeInterceptor();

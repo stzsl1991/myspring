@@ -5,28 +5,22 @@ package com.myspring.ioc.aop;
  */
 public class TargetSource {
     //被代理对象接口的Class
-    private Class targetClass;
+    private Class<?>[] targetClass;
     //被代理对象
     private Object target;
 
-    public TargetSource(Class<?> targetClass, Object target) {
+    public TargetSource(Object target,Class<?>... targetClass) {
         this.targetClass = targetClass;
         this.target = target;
     }
 
-    public Class getTargetClass() {
+    public Class<?>[] getTargetClass() {
         return targetClass;
     }
 
-    public void setTargetClass(Class targetClass) {
-        this.targetClass = targetClass;
-    }
 
     public Object getTarget() {
         return target;
     }
 
-    public void setTarget(Object target) {
-        this.target = target;
-    }
 }

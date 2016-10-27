@@ -10,15 +10,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 没看懂
+ * 切入点的解析，AspectJ管理切面的核心
  * Created by shulin on 16/10/25.
  */
 public class AspectJExpressionPointcut implements ClassFilter, MethodMatcher, Pointcut {
-
+    //切入点解析
     private PointcutParser pointcutParser;
-
+    //表达式，用于切入点的解析
     private String expression;
-
+    //由切入点解析产生的结果，用来比对方法/类 是否需要切入
     private PointcutExpression pointcutExpression;
 
     private static final Set<PointcutPrimitive> DEFAULT_SUPPORTED_PRIMITIVES = new HashSet<PointcutPrimitive>();

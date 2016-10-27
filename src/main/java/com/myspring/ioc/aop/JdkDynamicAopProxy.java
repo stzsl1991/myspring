@@ -9,7 +9,7 @@ import java.lang.reflect.Proxy;
 /**
  * Created by shulin on 16/10/24.
  */
-public class JdkDynamicAopProxy implements AopProxy,InvocationHandler {
+public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {
 
     private AdvisedSupport advisedSupport;
 
@@ -19,7 +19,7 @@ public class JdkDynamicAopProxy implements AopProxy,InvocationHandler {
 
     @Override
     public Object getProxy() {
-        return Proxy.newProxyInstance(getClass().getClassLoader(),new Class[]{advisedSupport.getTargetSource().getTargetClass()},this);
+        return Proxy.newProxyInstance(getClass().getClassLoader(), advisedSupport.getTargetSource().getTargetClass(), this);
     }
 
     @Override
@@ -31,7 +31,12 @@ public class JdkDynamicAopProxy implements AopProxy,InvocationHandler {
 //        System.out.println("after------------");
 //        return object;
         MethodInterceptor m = advisedSupport.getMethodInterceptor();
-        ReflectiveMethodInvocation reflectiveMethodInvocation = new ReflectiveMethodInvocation(advisedSupport.getTargetSource().getTarget(),method,args);
-        return m.invoke(reflectiveMethodInvocation);
+        if (advisedSupport.getMethodMatcher() != null
+                && advisedSupport.getMethodMatcher().matches(method, advisedSupport.getTargetSource().getTarget().getClass())) {
+            return m.invoke(new ReflectiveMethodInvocation(advisedSupport.getTargetSource().getTarget(),
+                    method, args));
+        } else {
+            return method.invoke(advisedSupport.getTargetSource().getTarget(), args);
+        }
     }
 }

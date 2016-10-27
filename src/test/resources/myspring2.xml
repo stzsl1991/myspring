@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <beans>
+        <bean id="helloWorldService" class="com.myspring.ioc.HelloWorldServiceImpl">
+            <property name="name" value="张三"></property>
+            <property name="word" value="你们好！"></property>
+            <property name="outputService" ref="outputService"></property>
+        </bean>
+
+        <bean id="outputService" class="com.myspring.ioc.OutputServiceImpl">
+            <property name="name" value="Output"></property>
+        </bean>
+        <bean id="timeInterceptor" class="com.myspring.ioc.aop.TimeInterceptor"></bean>
+
+        <bean id="autoProxyCreator" class="com.myspring.ioc.aop.aspectj.AspectJAwareAdvisorAutoProxyCreator"></bean>
+
+        <bean id="aspectjAspect" class="com.myspring.ioc.aop.aspectj.AspectJExpressionPointcutAdvisor">
+            <property name="advice" ref="timeInterceptor"></property>
+            <property name="expression" value="execution(* com.myspring.ioc.*.*(..))"></property>
+        </bean>
+        <!--<bean id="beanInitializeLogger" class="com.myspring.ioc.BeanInitializeLogger">-->
+        <!--</bean>-->
+</beans>
