@@ -13,7 +13,7 @@ import java.util.Set;
  * 切入点的解析，AspectJ管理切面的核心
  * Created by shulin on 16/10/25.
  */
-public class AspectJExpressionPointcut implements ClassFilter, MethodMatcher, Pointcut2 {
+public class AspectJExpressionPointcut implements ClassFilter, MethodMatcher, Pointcut {
     //切入点解析
     private PointcutParser pointcutParser;
     //表达式，用于切入点的解析
