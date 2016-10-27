@@ -21,7 +21,7 @@ public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
     }
 
     @Override
-    public Pointcut getPointcut() {
+    public Pointcut2 getPointcut() {
         return this.pointcut;
     }
 
