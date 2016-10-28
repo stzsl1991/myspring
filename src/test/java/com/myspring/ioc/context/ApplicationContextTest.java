@@ -28,7 +28,7 @@ public class ApplicationContextTest {
      */
     @Test
     public void testBeanProcess() throws Exception{
-        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("myspring2.xml");
+        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("myspring-aspectj.xml");
         HelloWorldServiceImpl helloWorldService = (HelloWorldServiceImpl) applicationContext.getBean(helloBeanName);
         helloWorldService.sayHello();
     }

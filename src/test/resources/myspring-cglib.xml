@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+    <bean id="cglibService" class="com.myspring.ioc.CglibService">
+        <property name="name" value="李逵"></property>
+    </bean>
+    <bean id="timeInterceptor" class="com.myspring.ioc.aop.TimeInterceptor"></bean>
+
+    <bean id="autoProxyCreator" class="com.myspring.ioc.aop.aspectj.AspectJAwareAdvisorAutoProxyCreator"></bean>
+
+    <bean id="aspectjAspect" class="com.myspring.ioc.aop.aspectj.AspectJExpressionPointcutAdvisor">
+        <property name="advice" ref="timeInterceptor"></property>
+        <property name="expression" value="execution(* com.myspring.ioc.*.*(..))"></property>
+    </bean>
+    <!--<bean id="beanInitializeLogger" class="com.myspring.ioc.BeanInitializeLogger">-->
+    <!--</bean>-->
+</beans>

@@ -5,7 +5,8 @@ package com.myspring.ioc.aop.aspectj;
  * Created by shulin on 16/10/25.
  */
 public interface Pointcut {
+    //获取类过滤器
     ClassFilter getClassFilter();
-
+    //获取方法过滤器
     MethodMatcher getMethodMatcher();
 }

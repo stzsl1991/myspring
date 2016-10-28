@@ -41,7 +41,7 @@ public class AspectJAwareAdvisorAutoProxyCreator implements BeanPostProcessor, B
                 AdvisedSupport advisedSupport = new AdvisedSupport();
                 advisedSupport.setMethodInterceptor((MethodInterceptor) advisor.getAdvice());
                 advisedSupport.setMethodMatcher(advisor.getPointcut().getMethodMatcher());
-                TargetSource targetSource = new TargetSource(bean, bean.getClass().getInterfaces());
+                TargetSource targetSource = new TargetSource(bean,bean.getClass(), bean.getClass().getInterfaces());
                 advisedSupport.setTargetSource(targetSource);
                 //返回代理对象
                 return new JdkDynamicAopProxy(advisedSupport).getProxy();
